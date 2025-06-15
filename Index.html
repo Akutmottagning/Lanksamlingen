@@ -1,0 +1,2699 @@
+<!DOCTYPE html>
+<html lang="sv">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Sökbar länklista (rensad)
+  </title>
+  <style>
+   body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 20px;
+    }
+    a {
+      text-decoration: none;
+      color: #0073e6;
+    }
+    small {
+      display: block;
+      color: #666;
+    }
+    #noResults {
+      display: none;
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+ </head>
+ <body>
+  <h1>
+   Sök i länksamlingen
+  </h1>
+  <input id="searchInput" onkeyup="filterLinks()" placeholder="Sök efter länktext..." type="text"/>
+  <p id="noResults">
+   Inga träffar hittades.
+   <br/>
+   <span id="searchGoogle" style="display:none; color:green;">
+    Vill du utöka sökningen på nätet?
+    <a href="#" id="googleLink" target="_blank">
+     Sök på Google
+    </a>
+   </span>
+  </p>
+  <ul id="linkList" style="display:none;">
+   <li>
+    <a href="https://www.wix.com/lpviral/enviral?utm_campaign=vir_wixad_live&amp;adsVersion=banner_2024&amp;orig_msid=aa99f552-cce6-4d9b-96f0-a304175f7068&amp;orig_msid=ac9456b9-f85a-4a67-80a6-80b05776319b&amp;adsVersion=banner_2024" target="_blank">
+     <span class="filter-text">
+      This website was built on Wix. Create yours today.Get Started
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=iSP1kg8_I0aaO5V8MtGU5VrmuXf7vwhMvXKxd7Nv_01UNlRLN0tRSFdFVEZQWU9CUDFXM1hFRDZHOSQlQCN0PWcu&amp;qrcode=true" target="_blank">
+     <span class="filter-text">
+      Eller klicka här!
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website" target="_blank">
+     <span class="filter-text">
+      STARTSIDA
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/omvårdnad-sköra-äldre" target="_blank">
+     <span class="filter-text">
+      Omvårdnad/SÄ
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/medicin-infektion" target="_blank">
+     <span class="filter-text">
+      Medicin
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/neurologi" target="_blank">
+     <span class="filter-text">
+      Neurologi
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/ortopedi" target="_blank">
+     <span class="filter-text">
+      Ortopedi
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/triage" target="_blank">
+     <span class="filter-text">
+      Triage
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/övergripande" target="_blank">
+     <span class="filter-text">
+      Övergripande
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/medicinsk-teknik" target="_blank">
+     <span class="filter-text">
+      Medicinsk teknik
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/news2" target="_blank">
+     <span class="filter-text">
+      NEWS2
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/aom" target="_blank">
+     <span class="filter-text">
+      AOM
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/cdu" target="_blank">
+     <span class="filter-text">
+      CDU
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/larm" target="_blank">
+     <span class="filter-text">
+      Larm
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/övervaket" target="_blank">
+     <span class="filter-text">
+      Övervaket
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/copy-of-medicin-infektion" target="_blank">
+     <span class="filter-text">
+      Infektion
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/läkemedel" target="_blank">
+     <span class="filter-text">
+      Läkemedel
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/admin" target="_blank">
+     <span class="filter-text">
+      Admin
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/labmedicin" target="_blank">
+     <span class="filter-text">
+      Labmedicin
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/öronnäsahals" target="_blank">
+     <span class="filter-text">
+      ÖNH
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/barn" target="_blank">
+     <span class="filter-text">
+      Barn
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/kirurgi-urologi" target="_blank">
+     <span class="filter-text">
+      Kirurgi/Urologi
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7BE1C1515E-94AF-4297-8819-679DC8395173%7D&amp;file=Bariatrisk%20s%C3%A4ng%20-%20rutin%202021.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Bariatrisk säng
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.vardhandboken.se/vard-och-behandling/basal-och-preventiv-omvardnad/fallprevention/oversikt/" target="_blank">
+     <span class="filter-text">
+      Fallprevention (Vårdhandboken)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/patientadministration/bestall-produkter-och-tjanster/hembesok-av-lakare" target="_blank">
+     <span class="filter-text">
+      Läkarbil Region Skåne
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://eur01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fdokumentportal.i.skane.se%2F_layouts%2F15%2FDocIdRedir.aspx%3FID%3DRS03-00000137930&amp;data=05%7C02%7CBenjamin.Bekele%40skane.se%7C07e6bac9be3b40167bc608dc6a9b6603%7C92f523893f0f46239a3b957c32d194e5%7C0%7C0%7C638502462856728947%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=L0MTfsXjbWXqH5p2iUX2Vv0Aup9wkvUsi%2FUb9afeaRI%3D&amp;reserved=0" target="_blank">
+     <span class="filter-text">
+      Läsrapport för sjuksköterskor
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/xwmfgk8ctbs6t4se2a62n/PEP-fl-jt-v2.pdf?rlkey=2exf0d4bwmdpjvxx0qgqiga99&amp;st=ub5bowi4&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      PEP-flöjt på akuten*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/672lkc7upl9yu7x5az32y/Preop-dryck-info.pdf?rlkey=vyv3m5gptx2y5ty6mlsm3up17&amp;st=qs2u9ev2&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Preoperativ näringsdryck*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://eur01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fdokumentportal.i.skane.se%2F_layouts%2F15%2FWopiFrame.aspx%3Fsourcedoc%3D%257B0AB35F67-C3A4-4637-8EAC-ABBADBC23E3B%257D%26file%3DSk%25C3%25B6ra%2520%25C3%2584ldre%2520-%2520pm%2520akutmottagningen%2520i%2520Malm%25C3%25B6%2520(240215).docx%26action%3Ddefault%26DefaultItemOpen%3D1&amp;data=05%7C02%7CBenjamin.Bekele%40skane.se%7C2bf93db7c0704d542cf008dc39e55853%7C92f523893f0f46239a3b957c32d194e5%7C0%7C0%7C638448904379577450%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=JcZRWvUw3jnGyNnNt5wrRYTnGZ0cf52xqXOXdI%2FIJ3k%3D&amp;reserved=0" target="_blank">
+     <span class="filter-text">
+      Sköra Äldre PM
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/fbhz79dlgafecdnygz4lo/Sk-ra-ldre-specifika-omv-rdnads-tg-rder-210505.pdf?rlkey=r2vk2ao3dciutfyprzv3ccr0n&amp;st=m69dud7e&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Specifika omvårdnadsåtgärder*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/64y0jdshgxvflmseo85p2/Sk-rhet-lathund_220208-justerad.pdf?rlkey=l3u615suft8z2wa7qh8e4i4ny&amp;st=h9lwszqf&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Sköra Äldre – algoritm*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://eur01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fdokumentportal.i.skane.se%2F_layouts%2F15%2FWopiFrame.aspx%3Fsourcedoc%3D%257B8D03A111-8C67-4418-9D58-2A1827D4E3FA%257D%26file%3DS%25C3%25A4ker%2520hemg%25C3%25A5ng%2520fr%25C3%25A5n%2520akutmottagningen%2520(240215).docx%26action%3Ddefault%26DefaultItemOpen%3D1&amp;data=05%7C02%7CBenjamin.Bekele%40skane.se%7C2bf93db7c0704d542cf008dc39e55853%7C92f523893f0f46239a3b957c32d194e5%7C0%7C0%7C638448904379567224%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=KGCYyGVFM2odKo5BO5tT38r7ah5lsdHrVsTrO5AhdGc%3D&amp;reserved=0" target="_blank">
+     <span class="filter-text">
+      Säker hemgång 2024
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/4kdmoubutsrobg03pv37m/S-prover.pdf?rlkey=6831ty8ekj6glzkd6dkscze5k&amp;st=9tlzdnwy&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      SÄ-prover*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.vardhandboken.se/vard-och-behandling/hud-och-sar/trycksar/forebyggande-atgarder/" target="_blank">
+     <span class="filter-text">
+      Trycksårsprevention (Vårdhandboken)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.vardhandboken.se/vard-och-behandling/basal-och-preventiv-omvardnad/blasovervakning-vid-sjukhusvard/oversikt/" target="_blank">
+     <span class="filter-text">
+      Urinretention (Vårdhandboken)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/akut-vard/traumamanual/aldre/" target="_blank">
+     <span class="filter-text">
+      Äldre och trauma
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://lakartidningen.se/klinik-och-vetenskap-1/artiklar-1/klinisk-oversikt/2022/11/clinical-frailty-scale-skorhet-ar-ett-satt-att-skatta-biologisk-alder/" target="_blank">
+     <span class="filter-text">
+      Clinical Frailty Scale (Läkartidningen)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/sidor/system-och-program/dokumentportal/" target="_blank">
+     <span class="filter-text">
+      Dokumentportalen
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/hemvister/akutmottagning-malmo" target="_blank">
+     <span class="filter-text">
+      Hemvisten
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://larportalen.skane.se/" target="_blank">
+     <span class="filter-text">
+      Lärportalen
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/" target="_blank">
+     <span class="filter-text">
+      Vårdgivare Skåne
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/omv%C3%A5rdnad-sk%C3%B6ra-%C3%A4ldre" target="_blank">
+     <span class="filter-text">
+      Omvårdnad/SÄ
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/%C3%B6vergripande" target="_blank">
+     <span class="filter-text">
+      Övergripande
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/%C3%B6vervaket" target="_blank">
+     <span class="filter-text">
+      Övervaket
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/l%C3%A4kemedel" target="_blank">
+     <span class="filter-text">
+      Läkemedel
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://akutmottagning.wixsite.com/website/%C3%B6ronn%C3%A4sahals" target="_blank">
+     <span class="filter-text">
+      ÖNH
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/w/s!Arq_7oECqXQagQZHf9r5w3azOdru?e=vf9mb2" target="_blank">
+     <span class="filter-text">
+      Allergisk reaktion*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/w/s!Arq_7oECqXQagRRlxSZk-iiZcEu9?e=wcyvgi" target="_blank">
+     <span class="filter-text">
+      Blodprov*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/w/s!Arq_7oECqXQagQfXeYOMjvPbxL51?e=0Y0piy" target="_blank">
+     <span class="filter-text">
+      Blodtransfusion*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/w/s!Arq_7oECqXQagQpi3eW4VI2Qc8j6?e=FcYoZN" target="_blank">
+     <span class="filter-text">
+      Dehydrering*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/w/s!Arq_7oECqXQagQsBgVyhiqWktVTl?e=Peh5wm" target="_blank">
+     <span class="filter-text">
+      DVT*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://eur01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fdokumentportal.i.skane.se%2F_layouts%2F15%2FDocIdRedir.aspx%3FID%3DRS03-00000140283&amp;data=05%7C02%7CBenjamin.Bekele%40skane.se%7C2c5df34cbf6042c733fa08dca4c367a8%7C92f523893f0f46239a3b957c32d194e5%7C0%7C0%7C638566407118795896%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=v26vcJDwggOjGzC8zp9EJ7%2F0D%2F30JP2hyaBRBlkiFqM%3D&amp;reserved=0" target="_blank">
+     <span class="filter-text">
+      Elkonvertering*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/w/s!Arq_7oECqXQagQ8XOxEn406pTujd?e=bKnU5s" target="_blank">
+     <span class="filter-text">
+      Intox*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/w/s!Arq_7oECqXQagRI4ZalUQhxtg8qJ?e=yoFomB" target="_blank">
+     <span class="filter-text">
+      Krampanfall*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/w/s!Arq_7oECqXQagQ7ufK8wAmXaNNH2?e=h4EfNI" target="_blank">
+     <span class="filter-text">
+      Njursten*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/w/s!Arq_7oECqXQagREC--GB3PXDs9v2?e=2LFzsU" target="_blank">
+     <span class="filter-text">
+      Skallskada*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://www.analysportalen-labmedicin.skane.se/" target="_blank">
+     <span class="filter-text">
+      Analysportalen
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://analysportalen-labmedicin.skane.se/pics/Labmedicin/Verksamhetsomr%c3%a5den/Klinisk%20mikrobiologi/Analysportal/L%c3%a4s%20mer/BD_Blododling.pdf" target="_blank">
+     <span class="filter-text">
+      Blododling
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/fx745rc9bk9toyiw4v2v2/Exemple-odlingar-via-E-lab.pdf?rlkey=kt8upqrhwhglct27y986c6y4y&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      E-lab (instruktion för odlingar)*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/laboratoriemedicin/analyser/transfusion-och-transplantation/" target="_blank">
+     <span class="filter-text">
+      Instruktion för transfusion och transplantation
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/siteassets/1.-vardriktlinjer/laboratoriemedicin/transfusion/vid-transfusion---fillistning/transfusionskomplikation.pdf" target="_blank">
+     <span class="filter-text">
+      Instruktion vid transfusionskomplikationer
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/siteassets/1.-vardriktlinjer/laboratoriemedicin/remisser---fillistning/transfusionskomplikation---hemovigilans2.pdf" target="_blank">
+     <span class="filter-text">
+      remiss här
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/laboratoriemedicin/" target="_blank">
+     <span class="filter-text">
+      Laboratoriemedicin
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://analysportalen-labmedicin.skane.se/pics/Labmedicin/Verksamhetsomr%c3%a5den/Klinisk%20mikrobiologi/Analysportal/L%c3%a4s%20mer/likvor-praktisk-handledning.pdf" target="_blank">
+     <span class="filter-text">
+      Likvorprov vid lumbalpunktion
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/2yg5xderrm2mwerj1d7lg/Lathund-Lumbalpunktion.pdf?rlkey=cwv2qwalc7i50hvh3enfly25n&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Lumbalpunktion på akuten*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/laboratoriemedicin/remiss/" target="_blank">
+     <span class="filter-text">
+      Remisser och blanketter
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/siteassets/1.-vardriktlinjer/laboratoriemedicin/transport/transport-rorpost.pdf" target="_blank">
+     <span class="filter-text">
+      Rörpost - anvisningar
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc={8D75AF70-31F2-4C5E-BDC6-B5D0D219797E}&amp;file=Provtagningsinstruktion%20sputum,%20lokal%20riktlinje.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Sputumodling på akuten
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/42kbijjhm6u4mifhoywt2/Lokal-riktlinje-p-Akutmottagningarna-efter-att-vita-PCR-ej-l-ngre-finns-tillg-nglig-som-analysmetod-fr-n-2024-04-02.docx?rlkey=l1xkjc1jni4q5p3o0v7tc71oq&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      VitaPCR (2024)*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.vardhandboken.se/undersokning-och-provtagning/biopsier-och-punktioner/" target="_blank">
+     <span class="filter-text">
+      Biopsier och punktioner (Vårdhandboken)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/wza35yfz13k61xlf59ph2/SyraBasBalansen-v2.pdf?rlkey=1kjyclux18pitbcmub4o3bih1&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Blodgastolkning
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/7kcuvek8ybqe4jo3ozsu9/Surestep-drug-urine-test-20240811.jpg?rlkey=0ibr6gcloa3o2x02l4wj6o4si&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Drogtest urin, förkortningar*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.vardhandboken.se/undersokning-och-provtagning/biopsier-och-punktioner/ledpunktion/" target="_blank">
+     <span class="filter-text">
+      Ledpunktion (Vårdhandboken)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.vardhandboken.se/undersokning-och-provtagning/biopsier-och-punktioner/lumbalpunktion/oversikt/" target="_blank">
+     <span class="filter-text">
+      Lumbalpunktion (Vårdhandboken)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/patientadministration/vard-av-personer-fran-andra-lander/migration-asyl/vard-som-inte-kan-ansta/#158380" target="_blank">
+     <span class="filter-text">
+      Asylsökande och papperslösa
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7B8B992391-14EB-46E6-933E-CD540A0BC9CC%7D&amp;file=Buksm%C3%A4rta%20hos%20gravida%20och%20kvinnor%20i%20fertil%20%C3%A5lder.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Buksmärta och fertila/gravida kvinnor
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/vow1cj3su3hqh4bp3b5lm/V-rdfl-de-DVT-l-grisk-KvH-Akutmott-Malm.docx?rlkey=5vzt4z1uhjq98iwe2awrojdgu&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      DVT lågrisk*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/4lijaoini7q6uhqibtnrg/F-rh-jt-d-dimer.docx?rlkey=v8iqb38h8w9wudt9sscwuk2oi&amp;st=jfvbmkd1&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Patientinfo vid högt d-dimer*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/w8r4alw8dde3npq38qybe/Normalt-D-dimer.docx?rlkey=blz9f0puok84ct6ka04u2c151&amp;st=3bdy8cdn&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Patientinfo vid normalt d-dimer*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/rorelseorgan/ako/droppfinger/" target="_blank">
+     <span class="filter-text">
+      Droppfinger (hänvisas till PV)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7BF63A4FB4-9F82-4414-9E14-45849BB395A4%7D&amp;file=Ekg%20lokal%20rutin%20akutmottagningen%20%20Malm%C3%B6.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      EKG-rutin
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/9l0joy7v3mkrxxh31ncm5/Triage-Vuxna-generella-anvisningar.pdf?rlkey=gvey387u5a1bcrcaza3z9b8sl&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Enhetsval - generella anvisningar (2020)*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://docs.google.com/document/d/1d5ePyQs9D8jHnCoU_VpBjhdQNrP7IJK68dYMu5huSb8/edit?tab=t.0" target="_blank">
+     <span class="filter-text">
+      Epilepsi läkemedelskoncentrationer
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc={EE090997-D568-455D-83C7-%20E72E6EAFEB9B}&amp;file=PM%20F%C3%B6rdelning%20Spotcheck.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Fördelning av patienter från Spotcheck
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/tix961acbervxlwx9t5oq/Gipsproblem-h-nvisning.pdf?rlkey=4bk3qjosy1dc8pts3ebb122n3&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Gipsproblem - hänvisning*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://eur01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fdokumentportal.i.skane.se%2F_layouts%2F15%2FDocIdRedir.aspx%3FID%3DRS03-00000142288&amp;data=05%7C02%7CBenjamin.Bekele%40skane.se%7C07a83ea7cb1b43c3ecfe08dcc697ace1%7C92f523893f0f46239a3b957c32d194e5%7C0%7C0%7C638603601955740747%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=H8HS8udMvxuCnxKpANIRkpwZvJnpvvAwfZKiHkuxyR4%3D&amp;reserved=0" target="_blank">
+     <span class="filter-text">
+      Linje-baserat arbete (fr.o.m. 3 sept 2024)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc={051BABC9-89D5-41A7-AD1E-48A7E0047BE3}&amp;file=M%C3%A5ngs%C3%B6kare%20p%C3%A5%20akutmottagningen.doc&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Mångsökare
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.npo.se/" target="_blank">
+     <span class="filter-text">
+      NPÖ
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/kompetens-utveckling/projekt-och-utvecklingsarbete/omstallning-akuta-vardfloden/" target="_blank">
+     <span class="filter-text">
+      Omställning akuta vårdflöden
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://docs.google.com/document/d/1SarFraTTjhL7-oyIPagJEbZb7a569hRkLOnWijcXRJk/edit?tab=t.0" target="_blank">
+     <span class="filter-text">
+      Ortopedisk specialtriage
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://docs.google.com/document/d/1s6iwGHCQrcJSHIRnXuiX1zclNf9FaZSul83s2ID8tfE/edit?tab=t.0" target="_blank">
+     <span class="filter-text">
+      Prover inför operation
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://rettsonline-app.com/?username=rettsmalmo&amp;passwordhash=94b1fe898098cba29f93e6663c8e2fd2f144700d026e1772203bf69211a88a1d" target="_blank">
+     <span class="filter-text">
+      RETTS Online
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/sidor/system-och-program/radgivningsstodet/" target="_blank">
+     <span class="filter-text">
+      RGS webb (1177:s rådgivningsstöd)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://drive.google.com/file/d/0B1EzoOs1qx0MdEFoWWlUSmJVTDg/view?resourcekey=0-D2VnBjmuBT6dFdrX130vgw" target="_blank">
+     <span class="filter-text">
+      S-100B
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7B977B3C2F-4E25-40C6-A219-85150697DA5F%7D&amp;file=PM%20Rutin%20f%C3%B6r%20%C3%A4ndrad%20prioritet%20av%20saturation%20hos%20patienter%20med%20KOL%20och%20habituellt%20l%C3%A5g%20saturation.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Saturation vid KOL och habituellt lågt
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://triagehandboken.se/#/" target="_blank">
+     <span class="filter-text">
+      Triagehandboken
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/DocIdRedir.aspx?ID=RS03-00000102675" target="_blank">
+     <span class="filter-text">
+      Triagering av patienter som kommer via röntgen
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/patientadministration/vard-av-personer-fran-andra-lander/migration-asyl/ukraina/" target="_blank">
+     <span class="filter-text">
+      Ukraina (rätten till vård)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7B1345B2E8-406E-4D56-A867-DF929899BBAA%7D&amp;file=bppv_traningsprogram_slang_i_sangen.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Yrsel – patientinfo
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/DocIdRedir.aspx?ID=RS03-00000153843.aspx" target="_blank">
+     <span class="filter-text">
+      ÖNH - triage (2025)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/43t11yhcpqyg5smsxchmf/Avatar-beslutsst-d.pdf?rlkey=cow9hs89yr8j09gd7vnvocw2t&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Avatar beslutsstöd*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/n8r9058qxvsqjt76wsr1y/Lathund-EKG-tolkning-EKG.nu_.pdf?rlkey=7w5myljmc50obom9yf02ppktk&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      EKG lathund (EKG.nu)*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://rib.msb.se/fa" target="_blank">
+     <span class="filter-text">
+      Farliga ämnen (MSB RIB)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vard.skane.se/skanes-universitetssjukhus-sus/mottagningar-och-avdelningar/urologimottagning-malmo/" target="_blank">
+     <span class="filter-text">
+      Röda Telefonen (scrolla ner)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/kog5dh1hf189s3144fqv0/H-nvisning-av-prim-rv-rdspatienter.docx?rlkey=j6awi4qtgg709wn6zhc6u8888&amp;st=dgk1e0ll&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Södervärns primärvårdstriage (ej publicerad)*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/w/s!Arq_7oECqXQagR8VZPjAeCxZ7LLX?e=hA5hYh" target="_blank">
+     <span class="filter-text">
+      AOM -
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/w/s!Arq_7oECqXQagR8VZPjAeCxZ7LLX?e=hA5hYh" target="_blank">
+     <span class="filter-text">
+      inläggningskriterier*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/03mghxn6fo642emjpo0h0/Information-till-personal-som-arbeta-p-AOM.pdf?rlkey=48u5dkrjujnufq9gzfeehynk9&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      AOM - rutiner*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/SkaUniSjukhus/VOAkutOInternmed/VEAku/OmAk/AkMottMalm/Arbetsbeskrivning%20AOM-l%C3%A4kare.doc" target="_blank">
+     <span class="filter-text">
+      Arbetsbeskrivning för läkare
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/w/s!Arq_7oECqXQagRwDQvAhVwuwRUih?e=AsEJkq" target="_blank">
+     <span class="filter-text">
+      En dag på AOM*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/bild-och-funktionsmedicin/forberedelser-och-undersokningar/bild-och-funktion-sus/#93684" target="_blank">
+     <span class="filter-text">
+      Röntgenförberedelser
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://eur01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fdokumentportal.i.skane.se%2F_layouts%2F15%2FWopiFrame.aspx%3Fsourcedoc%3D%257B8D03A111-8C67-4418-9D58-2A1827D4E3FA%257D%26file%3DS%25C3%25A4ker%2520hemg%25C3%25A5ng%2520fr%25C3%25A5n%2520akutmottagningen%2520(240215).docx%26action%3Ddefault%26DefaultItemOpen%3D1&amp;data=05%7C02%7CBenjamin.Bekele%40skane.se%7C2bf93db7c0704d542cf008dc39e55853%7C92f523893f0f46239a3b957c32d194e5%7C0%7C0%7C638448904379567224%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=KGCYyGVFM2odKo5BO5tT38r7ah5lsdHrVsTrO5AhdGc%3D&amp;reserved=0" target="_blank">
+     <span class="filter-text">
+      Säker Hemgång 2024
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://larportalen.skane.se/learn/courses/42/50-000-larm" target="_blank">
+     <span class="filter-text">
+      50 000 Larm - Lärportalen
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vard.skane.se/skanes-universitetssjukhus-sus/mottagningar-och-avdelningar/akutmottagning-observationsmedicin-malmo/" target="_blank">
+     <span class="filter-text">
+      Akutmottagning observationsmedicin Malmö - Skånes universitetssjukhus Sus
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/zrmqsn1velqu1k68rx7nf/HSD-beslut-regional-riktlinje-avseende-provtagning-f-r-covid-19-och-influensa-av-patienter-med-symptom-p-luftv-gsinfektion-i-Region-Sk-ne.pdf?rlkey=61zdxnxzivfd1sya6d03equzm&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Covid-19/Influensa - ny riktlinje avseende provtagning (nov-24)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/smittskydd/coronavirus-ncov/" target="_blank">
+     <span class="filter-text">
+      Covid-19 - samlad information
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://docs.google.com/document/d/1VZKD2siz-dhI-4Yk9q6WAVi72wQdc27A5HFR3zqOXh0/edit?tab=t.0" target="_blank">
+     <span class="filter-text">
+      Immunsuppression
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/smittskydd/influensasasong/" target="_blank">
+     <span class="filter-text">
+      Influensa säsong 2023/riktlinjer
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/DocIdRedir.aspx?ID=RS03-00000146746" target="_blank">
+     <span class="filter-text">
+      Isolerings och provtagning vid misstänkt smittsam sjukdom
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://eur01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fdokumentportal.i.skane.se%2F_layouts%2F15%2FDocIdRedir.aspx%3FID%3DRS03-00000153484&amp;data=05%7C02%7CBenjamin.Bekele%40skane.se%7Ce7ceb95464834fe5c11308dd7c074396%7C92f523893f0f46239a3b957c32d194e5%7C0%7C0%7C638803092808420438%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=izSD7RdxmjXFFg5iYd%2FqAbryvzFJlBgTlpeWEPj023k%3D&amp;reserved=0" target="_blank">
+     <span class="filter-text">
+      Isolering, "blå isolering" (Skyddsisolering)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/smittskydd/ebola/" target="_blank">
+     <span class="filter-text">
+      Marburg - info på Vårdgivare Skåne
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.folkhalsomyndigheten.se/smittskydd-beredskap/utbrott/aktuella-utbrott/marburg-tanzania-januari-2025/" target="_blank">
+     <span class="filter-text">
+      Marburg - info från Folkhälsomyndigheten
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.afro.who.int/countries/united-republic-of-tanzania/news/tanzania-confirms-outbreak-marburg-virus-disease" target="_blank">
+     <span class="filter-text">
+      Marburg - info från WHO
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/smittskydd/apkoppor/" target="_blank">
+     <span class="filter-text">
+      Mpox (tidigare benämning: apkoppor) (samlad info)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://regionskane-my.sharepoint.com/:p:/g/personal/203832_skane_se/ESqjk0coJAtJtPA4UjsCiE4B7BZv9k_ldKibbwcNDI8lzw?e=i573Sh&amp;xsdata=MDV8MDJ8QmVuamFtaW4uQmVrZWxlQHNrYW5lLnNlfGI1OTRlN2U4YmQ2MDQ5MTNhZTZhMDhkZDhkM2UzNmMzfDkyZjUyMzg5M2YwZjQ2MjM5YTNiOTU3YzMyZDE5NGU1fDB8MHw2Mzg4MjIwMjA1MTU2ODA3ODJ8VW5rbm93bnxUV0ZwYkdac2IzZDhleUpGYlhCMGVVMWhjR2tpT25SeWRXVXNJbFlpT2lJd0xqQXVNREF3TUNJc0lsQWlPaUpYYVc0ek1pSXNJa0ZPSWpvaVRXRnBiQ0lzSWxkVUlqb3lmUT09fDB8fHw%3d&amp;sdata=cGFCNy8zRFQwRzF1d28yYTk0bHZLanBnM3N1Q2Y4TVlkR1NNVE1SeThiOD0%3d" target="_blank">
+     <span class="filter-text">
+      MRB-frågor (algoritm)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/v197okijfacfh467bp8zn/Fr-gor-kring-MRB-och-blodsmitta.pdf?rlkey=3ax3du4qtrdia77b2ehwp8dqd&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      MRB och blodsmitta - vanliga frågor*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/41nzlehdmltz1yn5p72ap/Brev-till-v-rden-m-ssling-2024-03-21.pdf?rlkey=pj1iog5xbzcr5k1vy59n9b9es&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Mässlingfall 2024 (brev till vården)*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/siteassets/1.-vardriktlinjer/regionala-vardprogram---fillistning/sepsis--vardprogram.pdf#page%3D9" target="_blank">
+     <span class="filter-text">
+      SEPSIS-larmkriterier
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/smittskydd/ebola/" target="_blank">
+     <span class="filter-text">
+      Viral hemorragisk feber (VHF), t.ex. ebola och marburg
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/vardhygien/smittor/" target="_blank">
+     <span class="filter-text">
+      Vårdhygien: smittor A-Ö
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/vardhygien/infektionsmanular/" target="_blank">
+     <span class="filter-text">
+      Vårdhygien: snabbguide för slutenvård
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.folkhalsomyndigheten.se/smittskydd-beredskap/overvakning-och-rapportering/anmalningspliktiga-sjukdomar/" target="_blank">
+     <span class="filter-text">
+      Anmälningspliktiga sjukdomar
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/c3eliwc1vakdk17cxofqf/Akut-internmedicin-pm-bok-2020.pdf?rlkey=jivx2uhst6nf3u41jga5qesxk&amp;st=2fjk2wvn&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Akut Internmedicin PM bok 2020*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/dpdefault.aspx?active=d66fd74c-5df3-4883-bcbe-83a7f37561ca&amp;RootFolder=dokumentmappar%2fRS%2fsus%2fSkaUniSjukhus%2fVOInf%2fVEInf" target="_blank">
+     <span class="filter-text">
+      Infektionsklinikens PM/beslutsstöd
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/cancer/#11542" target="_blank">
+     <span class="filter-text">
+      ​
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fvardgivare.skane.se%2Fvardriktlinjer%2Fsmittskydd%2Febola%2F&amp;data=05%7C02%7CBenjamin.Bekele%40skane.se%7Ca14900031dc84c45b4df08dd4861c12a%7C92f523893f0f46239a3b957c32d194e5%7C0%7C0%7C638746306865445377%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=450nAAUhAJnDTzAiJhlcX6CY%2FUv4oFxRsYmwiIr5Jas%3D&amp;reserved=0" target="_blank">
+     <span class="filter-text">
+      Hantering av misstänkt viral hemorragisk feber
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.folkhalsomyndigheten.se%2Fsmittskydd-beredskap%2Futbrott%2Faktuella-utbrott%2Febola-utbrott-uganda-2025-%2F&amp;data=05%7C02%7CBenjamin.Bekele%40skane.se%7Ca14900031dc84c45b4df08dd4861c12a%7C92f523893f0f46239a3b957c32d194e5%7C0%7C0%7C638746306865463255%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=fZB3tjEET2B106aujMpLAoABZ80R%2Bq%2BfQwM5%2B4w5yfY%3D&amp;reserved=0" target="_blank">
+     <span class="filter-text">
+      Ebola (Uganda 2025) Folkhälsomyndigheten
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.folkhalsomyndigheten.se%2Fsmittskydd-beredskap%2Fsmittsamma-sjukdomar%2Febola%2Finformation-till-resenarer-med-anledning-av-ebola%2F&amp;data=05%7C02%7CBenjamin.Bekele%40skane.se%7Ca14900031dc84c45b4df08dd4861c12a%7C92f523893f0f46239a3b957c32d194e5%7C0%7C0%7C638746306865475824%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=GnH20M5SykZ2beqtW0oNUwiS%2Fma2WiNNZXkEXxGbVwI%3D&amp;reserved=0" target="_blank">
+     <span class="filter-text">
+      Info till resenärer med anledning av ebola
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7BCCBB6C67-1C9B-4155-A3C1-A90A3E604241%7D&amp;file=Arbetsbeskrivning%20%C3%96vervaket%20lokal%20riktlinje%20v1.0.doc&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Arbetsbeskrivning för Övervaket
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7B8B05C396-3C65-482C-90A9-DB1E37951F30%7D&amp;file=Riktlinjer%20f%C3%B6r%20dokumentation%20av%20vitala%20parametrar%20p%C3%A5%20%C3%B6vervak%20och%20isoleringsrum.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Dokumentation av vitala parametrar
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc={46A935B5-BE9F-4B33-8AA6-10BE8998938E}&amp;file=Femoralisblockad%2022-11-22%20(2).docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Femoralisblockad PM (2023)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7B2EF75C45-D1FD-451B-AA82-4AD452279799%7D&amp;file=Sa%CC%88ker%20transport%20och%20passning%20%E2%80%93%20lokal%20riktlinje%20fo%CC%88r%20vuxenakutmottagning%2C%20Malmo%CC%88.doc&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Säker transport och passning
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/DocIdRedir.aspx?ID=RS03-00000100516" target="_blank">
+     <span class="filter-text">
+      Troponin I – algoritm för ssk
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/siteassets/1.-vardriktlinjer/laboratoriemedicin/rad-och-stod/riktlinjer-TnI.pdf?highlight=troponin+i" target="_blank">
+     <span class="filter-text">
+      Troponin I – medicinska riktlinjer
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://verktyg.internetmedicin.se/lathundar/toxidrom" target="_blank">
+     <span class="filter-text">
+      Toxidrom
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc={CABBCDFC-FB88-44CF-ACC1-EA51AFA8BD22}&amp;file=Fasta%20p%C3%A5%20akutmottagningen%20v7.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Fasta på akutmottagning
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/patientadministration/patientinformation/affisch/halsodeklaration-infor-sovning-och-operation/" target="_blank">
+     <span class="filter-text">
+      Hälsodeklaration inför op (QR kod finns i dok)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/s/1dpsg9b4akhlw34/Checklista%20h%C3%B6ftsp%C3%A5r.pdf?dl=0" target="_blank">
+     <span class="filter-text">
+      Höftspår - checklista*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7BD3059A7B-1944-4E69-BBDE-4B2FEE87D978%7D&amp;file=Riktlinjer%20i%20samband%20med%20KAD-behandling%20och%20bl%C3%A5s%C3%B6vervakning%20p%C3%A5%20vuxna.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      KAD (rutin på Ort)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7B112507E5-49F0-42BF-85A2-E4E0C201C2C9%7D&amp;file=Lustgas%20vid%20procedursm%C3%A4rta.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Lustgas vid procedursmärta
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/b/s!Arq_7oECqXQadOwCABEjlH_wfgk?e=Eckmeg" target="_blank">
+     <span class="filter-text">
+      Ortopedisk specialtriage*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://eur01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fdokumentportal.i.skane.se%2F_layouts%2F15%2FDocIdRedir.aspx%3FID%3DRS03-00000147656&amp;data=05%7C02%7CBenjamin.Bekele%40skane.se%7Cde4bb74553d143a513b208dd1b7dd552%7C92f523893f0f46239a3b957c32d194e5%7C0%7C0%7C638696949685903394%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=m%2FNn0dOyCVVRAyZlgLvmcMXOEL1QJE%2FhfPoWKmhaYhM%3D&amp;reserved=0" target="_blank">
+     <span class="filter-text">
+      Röntgen - vårdflöde flexibel rtg
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7B29CCEED3-4EF8-4DF7-9A70-46A724DC3FB8%7D&amp;file=lokal%20rutin%20r%C3%B6ntgenunders%C3%B6knings%20remiss%20utf%C3%A4rdad%20av%20v%C3%A5rdpersonal%20akutmottagningen%20sus%20Malm%C3%B6.docx&amp;actio" target="_blank">
+     <span class="filter-text">
+      Röntgenundersökning remiss av ssk
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/9goqr7mdhtch015ffpcco/Till-dig-som-skadat-dig-utomlands-uppdaterad.pdf?rlkey=v7ig20n0s451vbwndt9z95zac&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Skada utomlands (från Ortopedmott)*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.youtube.com/watch?v=OVNKbJVZU5I" target="_blank">
+     <span class="filter-text">
+      Piglux reponering
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.youtube.com/watch?v=EhJ7kpurKnk" target="_blank">
+     <span class="filter-text">
+      Colles fraktur reponering
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/s/ioigggu9y43npug/lathund%20till%20fsl.jpg?dl=0" target="_blank">
+     <span class="filter-text">
+      Röntgenremiss (lathund)*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/DocIdRedir.aspx?ID=RS03-00000120552" target="_blank">
+     <span class="filter-text">
+      Akuta handskador 2023
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/DocIdRedir.aspx?ID=RS03-00000083891" target="_blank">
+     <span class="filter-text">
+      Akutläkare som ortopedjour beskrivning
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc={23159DE3-E207-45E8-9356-A50227839163}&amp;file=Bild%20-%20Akut%20MR-unders%C3%B6kning%20under%20kv%C3%A4llar%20och%20helger%20p%C3%A5%20SUS.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Akut MR jourtid
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/DocIdRedir.aspx?ID=RS03-00000006554" target="_blank">
+     <span class="filter-text">
+      Barntrauma - allmänt, SH-klassifikation
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/DocIdRedir.aspx?ID=RS03-00000006568" target="_blank">
+     <span class="filter-text">
+      Barntrauma - övre extremitet
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/DocIdRedir.aspx?ID=RS03-00000006562" target="_blank">
+     <span class="filter-text">
+      Barntrauma - bäcken, höft, lår
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/DocIdRedir.aspx?ID=RS03-00000006537" target="_blank">
+     <span class="filter-text">
+      Barntrauma - knä, underben, fot
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/DocIdRedir.aspx?ID=RS03-00000006560" target="_blank">
+     <span class="filter-text">
+      Barntrauma - rygg
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/sus/SkaUniSjukhus/VOAkutOInternmed/VEAku/OmAk/AkMottMalm/Femoralisblockad%2022-11-22%20(2).docx" target="_blank">
+     <span class="filter-text">
+      Femoralisblockad
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7B26399881-F373-49AD-ADD9-241605CA1FB4%7D&amp;file=Br%C3%A4nnskador%20h%C3%A4nder%20-%20Pm%20f%C3%B6r%20handl%C3%A4ggning%20%2C%20SUS.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Handbrännskador
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/DocIdRedir.aspx?ID=RS03-00000120305" target="_blank">
+     <span class="filter-text">
+      Septisk artrit barn
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/DocIdRedir.aspx?ID=RS03-00000009263" target="_blank">
+     <span class="filter-text">
+      Trauma - axel, överarm
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/DocIdRedir.aspx?ID=RS03-00000009262" target="_blank">
+     <span class="filter-text">
+      Trauma - armbåge, underarm, handled
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/DocIdRedir.aspx?ID=RS03-00000009266" target="_blank">
+     <span class="filter-text">
+      Trauma - bäcken, höft, lår
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/DocIdRedir.aspx?ID=RS03-00000009265" target="_blank">
+     <span class="filter-text">
+      Trauma - knä
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/DocIdRedir.aspx?ID=RS03-00000009267" target="_blank">
+     <span class="filter-text">
+      Trauma - underben, fotled, fot
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/DocIdRedir.aspx?ID=RS03-00000009176" target="_blank">
+     <span class="filter-text">
+      Trombosprofylax ort pat
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://medinet.se/portal/user/auth/login/public_schema?customer_db_name=susort&amp;public_schema=True" target="_blank">
+     <span class="filter-text">
+      Ortopedens läkarschema
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/verksamhetsomraden/o21283-vo-ortopedi/djupa-lanksidor/djupt-lankblock/#linklist191066" target="_blank">
+     <span class="filter-text">
+      Ortopedens hemvist-PM
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://sfr.registercentrum.se/" target="_blank">
+     <span class="filter-text">
+      Frakturregistret
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://slf.se/swesem/app/uploads/2019/03/artrocentes-160831.pdf" target="_blank">
+     <span class="filter-text">
+      Artrocentes kompetensdokument SWESEM
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://slf.se/swesem/app/uploads/2019/03/axellux-fraxxmre-reponering-1605161.pdf" target="_blank">
+     <span class="filter-text">
+      Axellux kompetensdokument SWESEM
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://slf.se/swesem/app/uploads/2023/04/Ho%CC%88ftlux-reponering-230413.pdf" target="_blank">
+     <span class="filter-text">
+      Höftlux kompetensdokument SWESEM
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://slf.se/swesem/app/uploads/2019/03/axelstatus.pdf" target="_blank">
+     <span class="filter-text">
+      Axelstatus SWESEM
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://slf.se/swesem/app/uploads/2019/03/handledstatus-160831.pdf" target="_blank">
+     <span class="filter-text">
+      Handledsstatus SWESEM
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://slf.se/swesem/app/uploads/2019/03/handstatus-160831.pdf" target="_blank">
+     <span class="filter-text">
+      Handstatus SWESEM
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://slf.se/swesem/app/uploads/2019/03/knaxxstatus-160831.pdf" target="_blank">
+     <span class="filter-text">
+      Knästatus SWESEM
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/SkaUniSjukhus/AvdStratOmvUtv/Riktlinje%20bl%C3%A5s%C3%B6vervakning%20vid%20sjukhusv%C3%A5rd.pdf#search=bl%C3%A5s%C3%B6vervakning" target="_blank">
+     <span class="filter-text">
+      Blåsövervakning på SUS
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/verksamhetsomraden/o22744-vo-kirurgi-och-gastroenterologi/djupa-lanksidor/pm-och-riktlinjer-gastro/#linklist67052" target="_blank">
+     <span class="filter-text">
+      Endoskopi PM (Malmö)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/SkaUniSjukhus/VOAkutOInternmed/VEAku/OmAk/AkMottMalm/Lokal%20rutin%20%20urinretention%20och%20hematuri%20akumottagningen%20Malm%C3%B6%20v2.docx" target="_blank">
+     <span class="filter-text">
+      Hematuri och urinretention
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc={808961BF-622F-49F2-AAE3-F7FEE7FC7B29}&amp;file=Huvudtrauma%20inom%2024%20h%20hos%20patient%20med%20antikoagulation%20eller%20trombocyth%C3%A4mning.doc&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Huvudtrauma (minimal/mild)... (lokalt PM)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/siteassets/1.-vardriktlinjer/med-omraden/bild-funktion/bof---peroralt-kontrastmedel-dt-vuxna---rutiner.pdf" target="_blank">
+     <span class="filter-text">
+      Kontrastmedel
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/b/s!Arq_7oECqXQaggRjhu_ZpqcxhxYv?e=tGZ4Id" target="_blank">
+     <span class="filter-text">
+      Perianalabscess snabbspår till poliklinisk op*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7B70EC31A3-AE75-4D40-AF33-B4B90D09686B%7D&amp;file=Intoxikation%20skallskada.doc&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Skall-/huvudskada och samtidig intoxikation
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7BB79A3770-2D4A-4846-95D1-3AAD0D3639E6%7D&amp;file=Sm%C3%A4rtlindring%20f%C3%B6r%20kirurgpatienter%2C%20f%C3%B6re%20l%C3%A4karbed%C3%B6mning.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Smärtlindring innan läkarbedömning
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc={6BE0F411-C479-4054-86D2-61422CFCC873}&amp;file=PM%20stensm%C3%A4rtor%203.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Smärtlindring vid stensmärtor
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/SkaUniSjukhus/AvdStratOmvUtv/Riktlinje%20bl%c3%a5s%c3%b6vervakning%20vid%20sjukhusv%c3%a5rd.pdf" target="_blank">
+     <span class="filter-text">
+      Urinretention PM (för hela SUS)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/s/7lj9u85wsrus5ww/Strada%20%20Ny%20lag.pptx?dl=0" target="_blank">
+     <span class="filter-text">
+      Strada (ny lag från 2021)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.vardhandboken.se/katetrar-sonder-och-dran/sonder-inlaggning-och-skotsel/oversikt/" target="_blank">
+     <span class="filter-text">
+      Ventrikelsond (Vårdhandboken)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://kunskapsstodforvardgivare.se/omraden/kirurgi-och-plastikkirurgi/behandlingshandboken/akut-kirurgi" target="_blank">
+     <span class="filter-text">
+      Akut kirurgi PM Stockholm
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/sus/SkaUniSjukhus/VOKirOGastro/VEKir/SekAkOBracKir/Akut%20tromboembolisk%20tarmischemi.docx" target="_blank">
+     <span class="filter-text">
+      Akut tarmischemi
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/sus/SkaUniSjukhus/VOKirOGastro/VEKir/SekAkOBracKir/Akut%20%c3%b6vre%20GI-bl%c3%b6dning%2020210128%20final.pdf" target="_blank">
+     <span class="filter-text">
+      Akut övre GI-blödning
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://regionskane-my.sharepoint.com/personal/206577_skane_se/_layouts/15/onedrive.aspx?ga=1&amp;id=%2Fpersonal%2F206577%5Fskane%5Fse%2FDocuments%2FKirurgi%2Dhandbok%20fo%CC%88r%20underla%CC%88kare%20SUS%202021%2D1%2Epdf&amp;parent=%2Fpersonal%2F206577%5Fskane%5Fse%2FDocuments" target="_blank">
+     <span class="filter-text">
+      Kirurgi: Handbok för underläkare/ST-läkare 2021
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/DocIdRedir.aspx?ID=RS03-00000089750" target="_blank">
+     <span class="filter-text">
+      Ljumskbråck
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc={BCA9ECEE-E662-40E9-9B89-56D7AD7D2C54}&amp;file=Subakuta%20patienter%20p%C3%A5%20kirurgmottagningen%20PM.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Subakuta patienter på kirurgmottagningen
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/DocIdRedir.aspx?ID=RS03-00000131424" target="_blank">
+     <span class="filter-text">
+      Huvudskada+antikoagulantia 2024
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/DocIdRedir.aspx?ID=RS03-00000024057" target="_blank">
+     <span class="filter-text">
+      Indelning kir/uro barn
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/DocIdRedir.aspx?ID=RS03-00000087111" target="_blank">
+     <span class="filter-text">
+      Nefrostomi jourtid
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/kompetens-utveckling/sakkunniggrupper/barnskyddsteam/?highlight=barnskyddsteam" target="_blank">
+     <span class="filter-text">
+      Vårdgivare Skåne (skane.se)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/sus/SkaUniSjukhus/VOBarnMed/VEBarnmed/SekBarnAkInfSoc/Akutl%C3%A4kemedel.pdf#search%3D%28akutl%C3%A4kemedel%20f%C3%B6r%20barn%29" target="_blank">
+     <span class="filter-text">
+      Akutläkemedel (BarnAkuten)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/sus/SkaUniSjukhus/VOBarnMed/VEBarnmed/SekBarnAkInfSoc/AKUT%20SM%C3%84RTA%20OCH%20PROCEDURSM%C3%84RTA.pdf" target="_blank">
+     <span class="filter-text">
+      Akut smärta och procedursmärta (Barnakuten)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/SkaUniSjukhus/VOBarnMed/VEBarnmed/SekBarnAkInfSoc/Br%C3%A4nnskada.pdf#search=%28br%C3%A4nnskada%29" target="_blank">
+     <span class="filter-text">
+      Brännskada (Barnakuten)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/36vbh2uo5zhw8y8hcinvf/Child-check-info.pdf?rlkey=uoahh5bbm5uk7dl0qqeccc07o&amp;st=oxksd68a&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Child Check – info*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://eped.se/material_category/vard/" target="_blank">
+     <span class="filter-text">
+      ePed (erfarenhet- och evidensbaserad databas för barnläkemedel)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/sus/SkaUniSjukhus/VOBarnMed/VEBarnmed/SekBarnAkInfSoc/Generella%20Ordinationer%20Barnakuten%20SUS.pdf#search%3D%28Generella%20Ordinationer%20Barnakuten%20SUS%29" target="_blank">
+     <span class="filter-text">
+      Generella ordinationer (Barnakuten)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.rikshandboken-bhv.se/pediatrik/" target="_blank">
+     <span class="filter-text">
+      Rikshandboken
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/sus/SkaUniSjukhus/VOBarnMed/VEBarnmed/SekBarnAkInfSoc/SM%C3%84RTKOMPENDIUM.pdf" target="_blank">
+     <span class="filter-text">
+      Smärtkompendium
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/siteassets/1.-vardriktlinjer/traumamanual/retts-vitalparametrar.pdf#page%3D2" target="_blank">
+     <span class="filter-text">
+      Vital parametrar (Barnakuten)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/DocIdRedir.aspx?ID=RS03-00000024057" target="_blank">
+     <span class="filter-text">
+      Indelning kir/uro-barn
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/SkaUniSjukhus/VOBarnMed/VEBarnmed/SekBarnAkInfSoc/Rutin%20f%C3%B6r%20inl%C3%A4ggning%20p%C3%A5%20barnavdelning.pdf" target="_blank">
+     <span class="filter-text">
+      Rutin inläggning barnavd - läkare
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/SkaUniSjukhus/VONeurORehMedMinnGerSus/VENeur/OmNeur/NeurAvdObs/Akut%20strokebehandling%20p%C3%A5%20r%C3%B6ntgen%20-%20sjuksk%C3%B6terskerutiner.docx" target="_blank">
+     <span class="filter-text">
+      Akut strokebehandling på röntgen och akuten (ssk)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/SkaUniSjukhus/VONeurORehMedMinnGerSus/VENeur/OmNeur/NeurAvdObs/Blodtrycksbehandlning%20trombolys.docx" target="_blank">
+     <span class="filter-text">
+      Blodtrycksbehandling vid trombolys
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc={E10CC35C-40D7-4D20-9CF4-C1B6C47FA8DF}&amp;file=Bl%C3%B6dningskomplikationer%20vid%20trombolys.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Blödningskomplikationer vid trombolys
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/siteassets/1.-vardriktlinjer/regionala-vardprogram---fillistning/radda-hjarnan-prehospital-vardkedja.pdf#page%3D18" target="_blank">
+     <span class="filter-text">
+      Pre-HAST
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/SkaUniSjukhus/VONeurORehMedMinnGerSus/VENeur/OmNeur/NeurAvdObs/Metalyse.docx" target="_blank">
+     <span class="filter-text">
+      Metalyse
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/bild-och-funktionsmedicin/forberedelser-och-undersokningar/bild-och-funktion-sus/#93684" target="_blank">
+     <span class="filter-text">
+      MR-formulär
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.riksstroke.org/wp-content/uploads/2020/10/SKR_NIHSS-manual_A4_webb_for-utskrift-final2020.pdf" target="_blank">
+     <span class="filter-text">
+      NIHS skala
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7B0D7E8F1B-BB79-4A1A-9A2F-2893BEC25046%7D&amp;file=R%C3%A4dda%20hj%C3%A4rnan%20larm%20-%20arbetsbeskrivning%20f%C3%B6r%20hela%20teamet.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Rädda Hjärna – arbetsbeskrivning
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/SkaUniSjukhus/VONeurORehMedMinnGerSus/VENeur/OmNeur/Sp%C3%A4dningsschema%20f%C3%B6r%20akuta%20l%C3%A4kemedel.doc" target="_blank">
+     <span class="filter-text">
+      Spädningsschema från NeuroOBS
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc={BD1C9744-C6A5-4872-AFE0-8FB6B7C1E672}&amp;file=Stroke%20hos%20inneliggande%20patient%20SUS%20Malm%C3%B6.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Stroke hos inneliggande patient
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame2.aspx?sourcedoc=%7BE94E9E6C-AD78-4831-A93F-154C25D92C3E%7D&amp;file=Stroke%20PM%20Malm%C3%B6%20220209.doc&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Stroke PM (2022)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/DocIdRedir.aspx?ID=RS03-00000131424" target="_blank">
+     <span class="filter-text">
+      Huvudskada + antikoagulation 2024
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/SkaUniSjukhus/VONeurORehMedMinnGerSus/VENeur/OmNeur/NeurAvdObs/Blodtrycksbehandlning%20trombolys.docx" target="_blank">
+     <span class="filter-text">
+      Blodtrycksbehandling inför trombolys
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://slf.se/swesem/app/uploads/2019/03/nervstatus-190211.pdf" target="_blank">
+     <span class="filter-text">
+      Neurologstatus enl SWESEM
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://www.google.com/" target="_blank">
+     <span class="filter-text">
+      ​
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/medicinteknisk-utrustning/3m-bair-hugger-modell-775/" target="_blank">
+     <span class="filter-text">
+      Bair Hugger™
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/medicinteknisk-utrustning/3m-bair-hugger-modell-775/" target="_blank">
+     <span class="filter-text">
+      (Intranätet)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://utbildningsportalenskane.luvit.se/LuvitPortal/activities/onlinecoursedetails.aspx?inapp=1&amp;courseid=6060" target="_blank">
+     <span class="filter-text">
+      Bladderscan
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://utbildningsportalenskane.luvit.se/LuvitPortal/activities/onlinecoursedetails.aspx?inapp=1&amp;courseid=6060" target="_blank">
+     <span class="filter-text">
+      (Utbildingsportalen)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.vygon.com/catalog/boussignac-cpr-system_680_00650870" target="_blank">
+     <span class="filter-text">
+      ”Boussignac tub” (endotrakealtub prehospitalt)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.vygon.se/wp-content/uploads/sites/6/2018/09/anvaendarinstruktion-cpap-boussignac-a4.pdf" target="_blank">
+     <span class="filter-text">
+      CPAP Boussignac®
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.vygon.se/wp-content/uploads/sites/6/2018/09/anvaendarinstruktion-cpap-boussignac-a4.pdf" target="_blank">
+     <span class="filter-text">
+      (instruktioner)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.vardhandboken.se/vard-och-behandling/luftvagar/andningsvard/cpap-behandling/" target="_blank">
+     <span class="filter-text">
+      CPAP
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.vardhandboken.se/vard-och-behandling/luftvagar/andningsvard/cpap-behandling/" target="_blank">
+     <span class="filter-text">
+      (Vårdhandboken)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://medidyne.se/produkter/zoll-r-serie-monitor-defibrillator/#product-long-description" target="_blank">
+     <span class="filter-text">
+      ZOLL R-Serie defibrillator (hjärtstartare)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7BE528AB0B-9D8D-47BC-8F5E-E05B9D4F14A1%7D&amp;file=Sekund%C3%A4r%20ambulanstransport%20fr%C3%A5n%20SUS%20Malm%C3%B6%2C%20utrustning%2C%20EasyTrans%20och%20%C3%A5terresa.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      ”Easy Trans”
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7BE528AB0B-9D8D-47BC-8F5E-E05B9D4F14A1%7D&amp;file=Sekund%C3%A4r%20ambulanstransport%20fr%C3%A5n%20SUS%20Malm%C3%B6%2C%20utrustning%2C%20EasyTrans%20och%20%C3%A5terresa.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      (sekundär transport)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://utbildningsportalenskane.luvit.se/LuvitPortal/education/main.aspx?courseid=6325&amp;navtreeid=9612419e-adae-488c-9eef-7d0d64ebeb79" target="_blank">
+     <span class="filter-text">
+      enFlow™
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://utbildningsportalenskane.luvit.se/LuvitPortal/education/main.aspx?courseid=6325&amp;navtreeid=9612419e-adae-488c-9eef-7d0d64ebeb79" target="_blank">
+     <span class="filter-text">
+      blod-/vätskevärmare (Utbildningsportalen)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://varddokumentation.i.skane.se/10/_layouts/15/WopiFrame.aspx?sourcedoc=%7B67cb156c-204e-49dd-a6ba-18fbc681ba00%7D&amp;action=default" target="_blank">
+     <span class="filter-text">
+      enFlow™
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://varddokumentation.i.skane.se/10/_layouts/15/WopiFrame.aspx?sourcedoc=%7B67cb156c-204e-49dd-a6ba-18fbc681ba00%7D&amp;action=default" target="_blank">
+     <span class="filter-text">
+      blod-/vätskevärmare (snabbguide)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/medicinteknisk-utrustning/rs-nya-infusionssystem/" target="_blank">
+     <span class="filter-text">
+      Infusionspump (från B. Braun - info material)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.teleflex.com/usa/en/product-areas/emergency-medicine/intraosseous-access/arrow-ez-io-system/index.html" target="_blank">
+     <span class="filter-text">
+      Intraosseös nål - EZ-IO®
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.teleflex.com/usa/en/product-areas/emergency-medicine/intraosseous-access/arrow-ez-io-system/index.html" target="_blank">
+     <span class="filter-text">
+      (hemsida)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.teleflex.com/usa/en/product-areas/emergency-medicine/intraosseous-access/arrow-ez-io-system/literature/VA_IOS_Arrow-EZ-IO-Ped.pdf" target="_blank">
+     <span class="filter-text">
+      Intraosseös nål -
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.teleflex.com/usa/en/product-areas/emergency-medicine/intraosseous-access/arrow-ez-io-system/literature/VA_IOS_Arrow-EZ-IO-Ped.pdf" target="_blank">
+     <span class="filter-text">
+      EZ-IO®
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.teleflex.com/usa/en/product-areas/emergency-medicine/intraosseous-access/arrow-ez-io-system/literature/VA_IOS_Arrow-EZ-IO-Ped.pdf" target="_blank">
+     <span class="filter-text">
+      (pocket guide barn)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.teleflex.com/usa/en/product-areas/emergency-medicine/intraosseous-access/arrow-ez-io-system/literature/VA_IOS_EZ-IO_Pocket_Guide.pdf" target="_blank">
+     <span class="filter-text">
+      Intraosseös nål -
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.teleflex.com/usa/en/product-areas/emergency-medicine/intraosseous-access/arrow-ez-io-system/literature/VA_IOS_EZ-IO_Pocket_Guide.pdf" target="_blank">
+     <span class="filter-text">
+      EZ-IO®
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.teleflex.com/usa/en/product-areas/emergency-medicine/intraosseous-access/arrow-ez-io-system/literature/VA_IOS_EZ-IO_Pocket_Guide.pdf" target="_blank">
+     <span class="filter-text">
+      (pocket guide vuxen)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/x9eh72vkoobtq3a4hkgb1/Myco4-snabbguide.pdf?rlkey=wkhmhyrexngd82dpp1avzf4a4&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Larmtelefon* - Ascom Myco™ 4 smartphone
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://timik.se/produkter/enflow-iv/" target="_blank">
+     <span class="filter-text">
+      QinFlow Warrior™
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://cdn5.dcbstatic.com/files/r/e/regionskane_docebosaas_com/1709330400/0l_4d1ZH_sEDDZ-oWtN4QQ/item/2746b3c4a5db2955a30ed90940c19ece33be4a77.pdf" target="_blank">
+     <span class="filter-text">
+      Syrgas - Viproxal medicinsk oxygen 2 liter
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/b/s!Arq_7oECqXQagXEBbABeVPNUGoaV?e=s8yiLA" target="_blank">
+     <span class="filter-text">
+      Thoraxdränage (Thopaz™ - snabböversikt)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/b/s!Arq_7oECqXQagXIRnFN-KeWhy7np?e=p8X9zq" target="_blank">
+     <span class="filter-text">
+      Thoraxdränage (Thopaz+™ - snabböversikt)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.youtube.com/watch?v=KMqSphcR3AA" target="_blank">
+     <span class="filter-text">
+      Thoraxdränage
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.youtube.com/watch?v=KMqSphcR3AA" target="_blank">
+     <span class="filter-text">
+      (Thopaz™ - video)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://uresil.com/pneumothorax-products/" target="_blank">
+     <span class="filter-text">
+      Thoraxdränage (Thora-vent™)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.vardhandboken.se/katetrar-sonder-och-dran/thoraxdranage/" target="_blank">
+     <span class="filter-text">
+      Thoraxdränage
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.vardhandboken.se/katetrar-sonder-och-dran/thoraxdranage/" target="_blank">
+     <span class="filter-text">
+      (Vårdhandboken)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://comfortmedical.se/en/produkt/transaroll-hygieneboard/" target="_blank">
+     <span class="filter-text">
+      Transaraoll Hygieneboard (liggande förflyttning)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://res.onemed.com/SE/Produktblad/1110295.pdf" target="_blank">
+     <span class="filter-text">
+      Trauma Cover (Comfort Medical) - manual
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.medelahealthcare.com/en/solutions/professional-vacuum-solutions/surgical-airway-suction/dominant-flex-and-basic-suction-pumps" target="_blank">
+     <span class="filter-text">
+      Trauma-sugsystem(Medela™)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/medicinteknisk-utrustning/" target="_blank">
+     <span class="filter-text">
+      Utrustningsbanken
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/medicinteknisk-utrustning/" target="_blank">
+     <span class="filter-text">
+      (Intranätet)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/SkaUniSjukhus/ForvLed/%C3%96verenskommelse%20%E2%80%93%20instruktion%20akuta%20v%C3%A5rdfl%C3%B6den%20PV+Sus.pdf#search=akut%20v%C3%A5rdfl%C3%B6de" target="_blank">
+     <span class="filter-text">
+      Akuta Vårdflöden
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/sus/AvdStratVardutvSakSus/EnhSakOKat/Ambulanslarm%20vid%20akut%20livshotande%20tillst%C3%83%C2%A5nd%20p%C3%83%C2%A5%20sjukhusomr%C3%83%C2%A5de%20SUS%20Malm%C3%83%C2%B6.docx" target="_blank">
+     <span class="filter-text">
+      Ambulanslarm i sjukhusområdet
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/sidor/anstallning-och-medarbetarservice/arbetsplatser-fastighet-och-tjanster/avfall-atervinning-kemikalier/" target="_blank">
+     <span class="filter-text">
+      Avfall, återvinning och kemikalier
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/medicinteknisk-utrustning/ipv-sus-lund-bariatrisk-sang-hyrutrustning" target="_blank">
+     <span class="filter-text">
+      Bariatrisk säng
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/sus/SkaUniSjukhus/VOAkutOInternmed/VEAku/OmAk/AkMottMalm/Arbetsbeskrivning%20%C3%83%E2%80%93vervaket%20lokal%20riktlinje%20v1.0.doc" target="_blank">
+     <span class="filter-text">
+      Bombhot – checklista
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/kk/kom/Bes%c3%b6kare_akutmottagning.pdf" target="_blank">
+     <span class="filter-text">
+      Besökare på akutmottagningen (riktmärke max 60 pers)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/sidor/vardinformation-och-patientservice2/patientadministration/dodsfallshantering" target="_blank">
+     <span class="filter-text">
+      Dödsfallshantering (Intranätet)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/patientadministration/dodsfallshantering/" target="_blank">
+     <span class="filter-text">
+      Dödsfallshantering (Vårdgivare Skåne)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://malmo.se/Bo-och-leva/Stod-och-omsorg/Hemloshet/Boenden-for-hemlosa.html" target="_blank">
+     <span class="filter-text">
+      Hemlösa - Boenden för hemlösa
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/sidor/anstallning-och-medarbetarservice/arbetsmiljo-och-halsa/hot-och-vald/" target="_blank">
+     <span class="filter-text">
+      Hot och våld
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/sidor/anstallning-och-medarbetarservice/arbetsmiljo-och-halsa/hot-och-vald/" target="_blank">
+     <span class="filter-text">
+      (Intranätet)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/SkaUniSjukhus/VOAkutOInternmed/VEAku/OmAk/AkMottMalm/Handlingsplan%20hot%20och%20v%C3%A5ld%20akutmottagningen%20Malm%C3%B6.doc" target="_blank">
+     <span class="filter-text">
+      Hot och våld - handlingsplan (lokal)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/psyk/Psyk/VOBarnUng/VEbarungpsy/Heldygspecmott/AkuAvdBUPMalmo/Riktlinjer%20Hot%20och%20v%C3%A5ld%20i%20Region%20Sk%C3%A5ne.pdf#search%3Dv%C3%A5ld%20i%20n%C3%A4ra" target="_blank">
+     <span class="filter-text">
+      Hot och våld
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/psyk/Psyk/VOBarnUng/VEbarungpsy/Heldygspecmott/AkuAvdBUPMalmo/Riktlinjer%20Hot%20och%20v%C3%A5ld%20i%20Region%20Sk%C3%A5ne.pdf#search%3Dv%C3%A5ld%20i%20n%C3%A4ra" target="_blank">
+     <span class="filter-text">
+      (Region Skåne)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/2itqj1ydpskivf6iu7cz0/Kamratst-d-2.0.pdf?rlkey=1cujwky1hdognj5fhleinrvm1&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Kamratstöd* (gammal)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vard.skane.se/siteassets/sjukhus/bilder-och-pdfer/skanes-universitetssjukhus/kartor/karta-sjukhusomrade-malmo.png" target="_blank">
+     <span class="filter-text">
+      Karta över SUS
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vard.skane.se/siteassets/sjukhus/bilder-och-pdfer/skanes-universitetssjukhus/kartor/karta-sjukhusomrade-malmo.png" target="_blank">
+     <span class="filter-text">
+      Malmö
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/s/iesqmp56ozmh2fg/Kontroll%20av%20vitalparametrar.doc?dl=0" target="_blank">
+     <span class="filter-text">
+      Kontroll av vitalparametrar*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/sidor/min-forvaltning-region-skane/katastrof-sakerhet/kris-katastrof/sus-kris-katastrofplan" target="_blank">
+     <span class="filter-text">
+      Kris- och
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/sidor/min-forvaltning-region-skane/katastrof-sakerhet/kris-katastrof/sus-kris-katastrofplan" target="_blank">
+     <span class="filter-text">
+      beredskapsplan SUS
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/sus/AvdStratOmvUtv/Riktlinjer%20f%C3%B6r%20kurator%20i%20beredskap.pdf#search%3DKurator%20i%20beredskap" target="_blank">
+     <span class="filter-text">
+      Kurator i beredskap
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/w5e6uzmeoon3a7jmol2pv/L-karbil-i-Sk-ne-20241217.pdf?rlkey=1544w68677iqziw2wx3m5l32p&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Läkarbil i Skåne 2024*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/patientadministration/bestall-produkter-och-tjanster/lakarbilen-skane/" target="_blank">
+     <span class="filter-text">
+      Läkarbil i Skåne (Vårdgivare Skåne)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/vdwpplc7knqrhfj8a69t2/samverkansrutin-mtn-malmo-20241022.pdf?rlkey=dvijid4u3qw9jwhynfly0cbxq&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Mobilt Team Närsjukvård Malmö*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/SkaUniSjukhus/VOAkutOInternmed/VEAku/OmAk/AkMottMalm/PM%20Polis%20beg%C3%A4r%20provtagning.doc" target="_blank">
+     <span class="filter-text">
+      Polisen begär provtagning (tullärenden)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/l1sxewf5lvq8y7it988pd/Procedurrummet_R13_Team3.pdf?rlkey=eh1qe12q39zbsd0ng1yakyyfs&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Procedurrummet*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/DocIdRedir.aspx?ID=RS03-00000147458" target="_blank">
+     <span class="filter-text">
+      Procedursedering
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/DocIdRedir.aspx?ID=RS03-00000152069" target="_blank">
+     <span class="filter-text">
+      PVK - PM avseende perifera infarter på akutmottagningen
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/b/s!Arq_7oECqXQagUEteT9jHhviqG6z?e=egncyf" target="_blank">
+     <span class="filter-text">
+      Röda Korset*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/bild-och-funktionsmedicin/forberedelser-och-undersokningar/bild-och-funktion-sus/#93684" target="_blank">
+     <span class="filter-text">
+      Röntgenförbedelser
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/1krfuw36krem4s8bh0yn4/DT-f-rberedeslse-bokningsst-d-Malm-2024_11-utskrift-3.pdf?rlkey=5e5v2859rrl0akd5h1i3b6f53&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Röntgenföreberedelser för DT (bl.a. rätt PVK och infart)*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/sidor/anstallning-och-medarbetarservice/arbetsplatser-fastighet-och-tjanster/fastighet-drift/rorpost/" target="_blank">
+     <span class="filter-text">
+      Rörpost
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7B7340BC3A-ABA0-4BBA-BBE6-5BC99D438A2C%7D&amp;file=Handlingsplan%20vid%20misstanke%20om%20sexuellt%20v%C3%A5ld%20mot%20m%C3%A4n%20eller%20transpersoner.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Sexuellt våld mot män eller transpersoner
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/b/s!Arq_7oECqXQagU2Nvk8hisB4wy5a?e=YIW93x" target="_blank">
+     <span class="filter-text">
+      Sjukhus Hemma
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vard.skane.se/skanes-universitetssjukhus-sus/undersokningar-och-behandlingar/sjukhusvard-i-hemmet/" target="_blank">
+     <span class="filter-text">
+      Sjukhus Hemma (Vårdgivare Skåne)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7B3DCF1AFC-855E-4C09-A424-A02617483E3D%7D&amp;file=PM_s%C3%B6kande%20fr%C3%A5n%20skyddat%20boende.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Skyddat boende
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/patientadministration/bestall-produkter-och-tjanster/sjukresor/?highlight=sjukresor" target="_blank">
+     <span class="filter-text">
+      Skånetrafiken Serviceportal
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/hemvister/smartmottagning-malmo/djupa-textsidor/pmriktlinjer/pm-smartmottagningen" target="_blank">
+     <span class="filter-text">
+      Smärtbehandling SUS Malmö
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://malmo.se/soc" target="_blank">
+     <span class="filter-text">
+      Socialtjänst
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/Dokumentmappar/RS/SkaUniSjukhus/VOInf/VEInf/Rutiner%20vid%20mottagande%20av%20patienter%20som%20kommer%20fr%C3%A5n%20sjukhus%20utomlands%20via%20SOS-International.docx" target="_blank">
+     <span class="filter-text">
+      SOS-International - "Rutiner för mottagande..."
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.dropbox.com/scl/fi/uates1mdrosdh21kyu3dp/Sterilcentralen.pdf?rlkey=oqnq7nnfs7o8c881p3wtdg5jn&amp;dl=0" target="_blank">
+     <span class="filter-text">
+      Sterilcentralen lokal*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/patientadministration/bestall-produkter-och-tjanster/sterilcentraler/#117704" target="_blank">
+     <span class="filter-text">
+      Sterilcentralen (Vårdgivare Skåne)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/vardhygien/stick-skarskador/" target="_blank">
+     <span class="filter-text">
+      Stick- och skärskador
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://1drv.ms/b/s!Arq_7oECqXQagT5mAE7F3IhlYqVB?e=GclyNo" target="_blank">
+     <span class="filter-text">
+      Strada (ny lag från 2021)*
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://www.digitaltolk.se/login" target="_blank">
+     <span class="filter-text">
+      Tolk - DigitalTolk
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc=%7B7340BC3A-ABA0-4BBA-BBE6-5BC99D438A2C%7D&amp;file=Handlingsplan%20vid%20misstanke%20om%20sexuellt%20v%C3%A5ld%20mot%20m%C3%A4n%20eller%20transpersoner.docx&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Transport (rutin)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="http://dokumentportal.i.skane.se/_layouts/15/WopiFrame.aspx?sourcedoc={4F581A53-3794-4088-B668-3AC07C0DB7FF}&amp;file=V%C3%A5ld%20i%20n%C3%A4ra%20relation%20lokal%20riktlinje.doc&amp;action=default&amp;DefaultItemOpen=1" target="_blank">
+     <span class="filter-text">
+      Våld i nära relation (lokal rutin)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/vald-i-nara-relationer/" target="_blank">
+     <span class="filter-text">
+      Våld i nära relationer (Vårdgivare Skåne)
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://intra.skane.se/sidor/anstallning-och-medarbetarservice/arbetsplatser-fastighet-och-tjanster/brand-stold-och-overfall/vaktare-ordningsvakt-och-larm" target="_blank">
+     <span class="filter-text">
+      Väktare, ordningsvakt och larm
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/vardriktlinjer/" target="_blank">
+     <span class="filter-text">
+      AKO-riktlinjer för primärvården
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://distriktslakare.com/wp-content/uploads/dodsbevis.pdf" target="_blank">
+     <span class="filter-text">
+      Dödsbevis blankett pdf
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://vardgivare.skane.se/patientadministration/dodsfallshantering/#7483" target="_blank">
+     <span class="filter-text">
+      Dödsfall allmänt
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://sites.google.com/view/stakutmalmo/" target="_blank">
+     <span class="filter-text">
+      ST-WEBB
+     </span>
+    </a>
+    <br/>
+   </li>
+   <li>
+    <a href="https://berzeliusmedical.se/" target="_blank">
+     <span class="filter-text">
+      Berzelius Medical
+     </span>
+    </a>
+    <br/>
+   </li>
+  </ul>
+  <script>
+   function filterLinks() {
+  const input = document.getElementById('searchInput').value.toLowerCase().trim();
+  const items = document.querySelectorAll('#linkList li');
+  let anyVisible = false;
+
+  items.forEach(item => {
+    const filterText = item.querySelector('.filter-text')?.textContent.toLowerCase() || '';
+    const match = filterText.includes(input);
+    item.style.display = match ? '' : 'none';
+    if (match) anyVisible = true;
+  });
+
+  const linkList = document.getElementById('linkList');
+  const noResults = document.getElementById('noResults');
+  const searchGoogle = document.getElementById('searchGoogle');
+  const googleLink = document.getElementById('googleLink');
+
+  if (input === "") {
+    linkList.style.display = 'none';
+    noResults.style.display = 'none';
+    searchGoogle.style.display = 'none';
+  } else {
+    linkList.style.display = anyVisible ? 'block' : 'none';
+    noResults.style.display = anyVisible ? 'none' : 'block';
+    searchGoogle.style.display = anyVisible ? 'none' : 'inline';
+    if (!anyVisible && googleLink) {
+      googleLink.href = 'https://www.google.com/search?q=' + encodeURIComponent(input);
+    }
+  }
+}
+  </script>
+ </body>
+</html>
