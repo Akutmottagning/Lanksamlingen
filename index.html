@@ -2679,37 +2679,29 @@
     <br/>
    </li>
   </ul>
-  <script>
-   function filterLinks() {
-  const input = document.getElementById('searchInput').value.toLowerCase().trim();
-  const items = document.querySelectorAll('#linkList li');
-  let anyVisible = false;
+ <script>
+    function filterLinks() {
+      var input = document.getElementById("searchInput");
+      var filter = input.value.toLowerCase();
+      var list = document.getElementById("linkList");
+      var items = list.getElementsByTagName("li");
+      var found = false;
 
-  items.forEach(item => {
-    const filterText = item.querySelector('.filter-text')?.textContent.toLowerCase() || '';
-    const match = filterText.includes(input);
-    item.style.display = match ? '' : 'none';
-    if (match) anyVisible = true;
-  });
+      list.style.display = "block";
 
-  const linkList = document.getElementById('linkList');
-  const noResults = document.getElementById('noResults');
-  const searchGoogle = document.getElementById('searchGoogle');
-  const googleLink = document.getElementById('googleLink');
+      for (var i = 0; i < items.length; i++) {
+        var text = items[i].textContent || items[i].innerText;
+        if (text.toLowerCase().indexOf(filter) > -1) {
+          items[i].style.display = "";
+          found = true;
+        } else {
+          items[i].style.display = "none";
+        }
+      }
 
-  if (input === "") {
-    linkList.style.display = 'none';
-    noResults.style.display = 'none';
-    searchGoogle.style.display = 'none';
-  } else {
-    linkList.style.display = anyVisible ? 'block' : 'none';
-    noResults.style.display = anyVisible ? 'none' : 'block';
-    searchGoogle.style.display = anyVisible ? 'none' : 'inline';
-    if (!anyVisible && googleLink) {
-      googleLink.href = 'https://www.google.com/search?q=' + encodeURIComponent(input);
+      document.getElementById("noResults").style.display = found ? "none" : "block";
     }
-  }
-}
   </script>
- </body>
+
+</body>
 </html>
