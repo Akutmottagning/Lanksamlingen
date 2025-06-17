@@ -1,62 +1,79 @@
 <!DOCTYPE html>
 <html lang="sv">
- <head>
-  <meta charset="utf-8"/>
-  <title>
-   Sökbar länklista (rensad)
-  </title>
+<head>
+  <meta charset="UTF-8">
+  <title>Länksamling</title>
   <style>
-   body {
+    body {
       font-family: Arial, sans-serif;
-      padding: 20px;
+      margin: 0;
     }
-    input[type="text"] {
-      width: 100%;
+
+    .search-container {
+      position: sticky;
+      top: 0;
+      background-color: white;
       padding: 10px;
+      z-index: 999;
+      border-bottom: 1px solid #ccc;
+    }
+
+    input#searchInput {
+      width: 100%;
+      padding: 12px 20px;
       font-size: 16px;
-      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
     }
-    ul {
-      list-style-type: none;
-      padding: 0;
+
+    #noResults {
+      padding: 10px;
+      display: none;
     }
-    li {
-      margin-bottom: 20px;
+
+    ul#linkList {
+      list-style: none;
+      padding: 0 10px;
     }
+
+    ul#linkList li {
+      margin-bottom: 15px;
+    }
+
     a {
       text-decoration: none;
-      color: #0073e6;
+      color: #0077cc;
     }
-    small {
-      display: block;
-      color: #666;
-    }
-    #noResults {
-      display: none;
-      color: red;
-      font-weight: bold;
+
+    a:hover {
+      text-decoration: underline;
     }
   </style>
- </head>
- <body>
+</head>
+<body>
+
+  <div class="search-container">
     <input id="searchInput" onkeyup="filterLinks()" placeholder="Sök i Länksamlingen..." type="text"/>
+  </div>
+
   <p id="noResults">
-   Inga träffar hittades.
-   <br/>
-  </p>
-  <ul id="linkList" style="display:none;">
-   <li>
-    <a href="https://www.wix.com/lpviral/enviral?utm_campaign=vir_wixad_live&amp;adsVersion=banner_2024&amp;orig_msid=aa99f552-cce6-4d9b-96f0-a304175f7068&amp;orig_msid=ac9456b9-f85a-4a67-80a6-80b05776319b&amp;adsVersion=banner_2024" target="_blank">
-     <span class="filter-text">
-      This website was built on Wix. Create yours today.Get Started
-     </span>
-    </a>
+    Inga träffar hittades.
     <br/>
-   </li>
-   <li>
-    <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=iSP1kg8_I0aaO5V8MtGU5VrmuXf7vwhMvXKxd7Nv_01UNlRLN0tRSFdFVEZQWU9CUDFXM1hFRDZHOSQlQCN0PWcu&amp;qrcode=true" target="_blank">
-     <span class="filter-text">
-      Eller klicka här!
+  </p>
+
+  <ul id="linkList" style="display:none;">
+    <li>
+      <a href="https://www.wix.com/lpviral/enviral?utm_campaign=vir_wixad_live&amp;adsVersion=banner_2024&amp;orig_msid=aa99f552-cce6-4d9b-96f0-a304175f7068&amp;orig_msid=ac9456b9-f85a-4a67-80a6-80b05776319b&amp;adsVersion=banner_2024" target="_blank">
+        <span class="filter-text">
+          This website was built on Wix. Create yours today. Get Started
+        </span>
+      </a>
+      <br/>
+    </li>
+    <li>
+      <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=iSP1kg8_I0aaO5V8MtGU5VrmuXf7vwhMvXKxd7Nv_01UNlRLN0tRSFdFVEZQWU9CUDFXM1hFRDZHOSQlQCN0PWcu&amp;qrcode=true" target="_blank">
+        <span class="filter-text">
+          Eller klicka här!
      </span>
     </a>
     <br/>
