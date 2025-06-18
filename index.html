@@ -54,6 +54,10 @@
 
   <div class="search-container">
     <input id="searchInput" onkeyup="filterLinks()" placeholder="Sök i Länksamlingen..." type="text"/>
+  <p id="randomLinkTrigger" onclick="showRandomLink()" style="cursor: pointer; color: #007bff; text-decoration: underline; margin-bottom: 15px;">
+    Slumpa en länk till mig!
+  </p>
+  <p id="randomLinkResult" style="margin-bottom: 20px; font-weight: bold; display: none;"></p>
   </div>
 
   <p id="noResults">
@@ -2655,29 +2659,52 @@
     <br/>
    </li>
   </ul>
- <script>
-    function filterLinks() {
-      var input = document.getElementById("searchInput");
-      var filter = input.value.toLowerCase();
-      var list = document.getElementById("linkList");
-      var items = list.getElementsByTagName("li");
-      var found = false;
+<script>
+  function filterLinks() {
+    var input = document.getElementById("searchInput").value.toLowerCase();
+    var links = document.querySelectorAll("#linkList li");
 
-      list.style.display = "block";
-
-      for (var i = 0; i < items.length; i++) {
-        var text = items[i].textContent || items[i].innerText;
-        if (text.toLowerCase().indexOf(filter) > -1) {
-          items[i].style.display = "";
-          found = true;
-        } else {
-          items[i].style.display = "none";
-        }
-      }
-
-      document.getElementById("noResults").style.display = found ? "none" : "block";
+    // Om fältet är tomt – nollställ
+    if (input.trim() === "") {
+      document.getElementById("linkList").style.display = "none";
+      document.getElementById("noResults").style.display = "none";
+      document.getElementById("randomLinkTrigger").style.display = "block";
+      document.getElementById("randomLinkResult").style.display = "none";
+      return;
     }
-  </script>
+
+    // Annars – göm slumptext och börja filtrera
+    document.getElementById("randomLinkTrigger").style.display = "none";
+    document.getElementById("randomLinkResult").style.display = "none";
+
+    var found = false;
+    links.forEach(function(li) {
+      var text = li.innerText.toLowerCase();
+      if (text.includes(input)) {
+        li.style.display = "";
+        found = true;
+      } else {
+        li.style.display = "none";
+      }
+    });
+
+    document.getElementById("linkList").style.display = "block";
+    document.getElementById("noResults").style.display = found ? "none" : "block";
+  }
+
+  function showRandomLink() {
+    var links = document.querySelectorAll("#linkList li");
+    var visibleLinks = Array.from(links).filter(li => li.style.display !== "none");
+    var allLinks = visibleLinks.length ? visibleLinks : links;
+
+    var randomIndex = Math.floor(Math.random() * allLinks.length);
+    var randomLink = allLinks[randomIndex].querySelector("a");
+
+    var result = document.getElementById("randomLinkResult");
+    result.innerHTML = `Här är en länk: <a href="${randomLink.href}" target="_blank">${randomLink.innerText}</a>`;
+    result.style.display = "block";
+  }
+</script>
 
 </body>
 </html>
