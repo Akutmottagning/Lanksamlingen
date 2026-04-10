@@ -6,11 +6,17 @@
   <title>Länksamling</title>
   <style>
     * { box-sizing: border-box; }
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    body {
       font-family: Arial, sans-serif;
       background: transparent;
       color: inherit;
+      overflow: hidden;
+      min-height: 100vh;
     }
     .search-wrap {
       position: sticky;
@@ -50,9 +56,18 @@
       margin: 0;
       font-weight: 700;
     }
+    .results-wrap {
+      height: calc(100vh - 86px);
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 0;
+      margin: 0;
+      scroll-behavior: smooth;
+    }
     #noResults {
       display: none;
       margin: 12px 0 0 0;
+      padding-right: 4px;
     }
     #linkList {
       list-style: none;
@@ -62,7 +77,6 @@
     }
     #linkList li {
       margin: 0 0 10px 0;
-      scroll-margin-top: 96px;
     }
     a {
       color: inherit;
@@ -72,13 +86,14 @@
       transition: background-color 0.15s ease;
     }
     a.auto-highlight {
-  background-color: #f1f3f4;  /* ljusgrå */
-  color: #202124;             /* mörk text */
-  padding: 4px 6px;
-  border-radius: 4px;
-  display: block;
-  border: 1px solid #dadce0;  /* subtil kant */
-}
+      background: #1a73e8;
+      color: #ffffff !important;
+      border-radius: 6px;
+      padding: 4px 8px;
+      display: inline-block;
+      box-shadow: 0 0 0 1px rgba(26,115,232,0.35), 0 2px 8px rgba(26,115,232,0.25);
+      font-weight: 700;
+    }
 
     .auto-highlight mark {
       background: rgba(255,255,255,0.24);
@@ -106,9 +121,10 @@
     </div>
   </div>
 
-  <p id="noResults">Inga träffar hittades.</p>
+  <div class="results-wrap" id="resultsWrap">
+    <p id="noResults">Inga träffar hittades.</p>
 
-  <ul id="linkList">
+    <ul id="linkList">
     <li><a href="https://intra.skane.se/medicinteknisk-utrustning/" target="_blank" rel="noopener noreferrer"><span class="filter-text">(Intranätet)</span></a></li>
     <li><a href="https://intra.skane.se/sidor/anstallning-och-medarbetarservice/arbetsmiljo-och-halsa/hot-och-vald/" target="_blank" rel="noopener noreferrer"><span class="filter-text">(Intranätet)</span></a></li>
     <li><a href="https://personal.1177.se/" target="_blank" rel="noopener noreferrer"><span class="filter-text">1177 e-tjänst (logga in med kort)</span></a></li>
@@ -596,16 +612,19 @@
     }
 
     function keepHighlightedItemVisible(item) {
-      const searchWrap = document.querySelector(".search-wrap");
-      const stickyHeight = searchWrap ? searchWrap.getBoundingClientRect().height : 0;
-      const rect = item.li.getBoundingClientRect();
-      const topLimit = stickyHeight + 8;
-      const bottomLimit = window.innerHeight - 8;
+      const container = document.getElementById("resultsWrap");
+      if (!container || !item || !item.li) return;
 
-      if (rect.top < topLimit) {
-        window.scrollBy({ top: rect.top - topLimit, behavior: "smooth" });
-      } else if (rect.bottom > bottomLimit) {
-        window.scrollBy({ top: rect.bottom - bottomLimit, behavior: "smooth" });
+      const itemTop = item.li.offsetTop;
+      const itemBottom = itemTop + item.li.offsetHeight;
+      const viewTop = container.scrollTop;
+      const viewBottom = viewTop + container.clientHeight;
+      const padding = 12;
+
+      if (itemTop < viewTop + padding) {
+        container.scrollTop = Math.max(0, itemTop - padding);
+      } else if (itemBottom > viewBottom - padding) {
+        container.scrollTop = itemBottom - container.clientHeight + padding;
       }
     }
 
@@ -639,6 +658,7 @@
         randomTrigger.style.display = "block";
         randomResult.style.display = "none";
         randomResult.innerHTML = "";
+        document.getElementById("resultsWrap").scrollTop = 0;
         return;
       }
 
@@ -659,6 +679,7 @@
         sortVisibleItems(items, input);
         applyMatchFormatting(items, input);
         currentIndex = 0;
+        document.getElementById("resultsWrap").scrollTop = 0;
         setHighlight(currentIndex);
       } else {
         visibleItems = [];
