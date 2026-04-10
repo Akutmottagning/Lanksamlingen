@@ -744,5 +744,21 @@
       }
     });
   </script>
-</div></body>
+</div>
+<script>
+document.addEventListener("click", function(e) {
+  const link = e.target.closest("a");
+  if (!link) return;
+
+  const href = link.getAttribute("href");
+  if (!href) return;
+
+  if (href.includes("dropbox.com")) {
+    e.preventDefault();
+    window.open(href, "_blank");
+  }
+});
+</script>
+
+</body>
 </html>
