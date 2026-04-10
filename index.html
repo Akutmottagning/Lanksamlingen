@@ -25,15 +25,36 @@
       background: inherit;
       padding: 0 0 12px 0;
     }
+    .search-box {
+      position: relative;
+    }
+    .search-box::before {
+      content: "🔍";
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      line-height: 1;
+      opacity: .65;
+      pointer-events: none;
+    }
     #searchInput {
       width: 100%;
-      padding: 12px 14px;
+      padding: 12px 14px 12px 40px;
       font-size: 16px;
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 8px;
-      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.9);
       color: inherit;
       outline: none;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+    #searchInput:focus {
+      border-color: #9ec9e3;
+      box-shadow: 0 0 0 3px rgba(158, 201, 227, 0.35);
     }
     #searchInput::placeholder {
       color: inherit;
@@ -86,24 +107,22 @@
       transition: background-color 0.15s ease;
     }
     a.auto-highlight {
-      background: #1a73e8;
-      color: #ffffff !important;
+      background: #9ec9e3;
+      color: #000000 !important;
       border-radius: 6px;
       padding: 4px 8px;
       display: inline-block;
-      box-shadow: 0 0 0 1px rgba(26,115,232,0.35), 0 2px 8px rgba(26,115,232,0.25);
+      box-shadow: 0 0 0 1px rgba(158,201,227,0.5), 0 2px 8px rgba(158,201,227,0.4);
       font-weight: 700;
     }
 
     .auto-highlight mark {
-  background: #9ec9e3;
-  color: #000000 !important; /* bättre kontrast */
-  border-radius: 6px;
-  padding: 4px 8px;
-  display: inline-block;
-  box-shadow: 0 0 0 1px rgba(158,201,227,0.5), 0 2px 8px rgba(158,201,227,0.4);
-  font-weight: 700;
-}
+      background: rgba(255,255,255,0.35);
+      color: #000000;
+      padding: 0 2px;
+      border-radius: 3px;
+      font-weight: 700;
+    }
 
     .filter-text mark {
       background: rgba(26,115,232,0.14);
@@ -116,7 +135,9 @@
 </head>
 <body>
   <div class="search-wrap">
-    <input id="searchInput" type="text" placeholder="Sök i länksamlingen..." oninput="filterLinks()">
+    <div class="search-box">
+      <input id="searchInput" type="text" placeholder="Sök i länksamlingen..." oninput="filterLinks()">
+    </div>
     <div class="toolbar">
       <p id="randomLinkTrigger" class="toolbar-button" onclick="showRandomLink()">Slumpa en länk till mig!</p>
       <p id="randomLinkResult"></p>
