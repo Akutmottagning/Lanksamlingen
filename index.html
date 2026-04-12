@@ -132,10 +132,25 @@
       border-radius: 3px;
       font-weight: 700;
     }
-  
-    #backBtn {
-      display: inline-block;
-      margin: 0 0 12px 0;
+
+    #topBar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 0;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+    }
+    #leftBtn {
+      flex: 0 0 auto;
+    }
+    #rightBtns {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .navBtn {
       padding: 10px 14px;
       border: none;
       border-radius: 10px;
@@ -143,17 +158,21 @@
       color: #000;
       font-size: 14px;
       cursor: pointer;
-      z-index: 20;
       box-shadow: 0 1px 4px rgba(0,0,0,0.12);
     }
-    #backBtn:hover {
+    .navBtn:hover {
       background: #8bbbd6;
     }
 
 </style>
 </head>
 <body>
-<button id="backBtn" onclick="goHome()">← Tillbaka till sidan</button>
+<div id="topBar">
+  <button class="navBtn" onclick="goHome()">← Tillbaka till sidan</button>
+  <button class="navBtn" onclick="window.open('https://intra.skane.se/sidor/system-och-program/dokumentportal/', '_blank')">Dokumentportalen</button>
+  <button class="navBtn" onclick="window.open('https://intra.skane.se/', '_blank')">Intranätet</button>
+  <button class="navBtn" onclick="window.open('https://vardgivare.skane.se/', '_blank')">Vårdgivare Skåne</button>
+</div>
 <div class="search-wrap">
 <div class="search-box">
 <input id="searchInput" oninput="filterLinks()" placeholder="Sök i länksamlingen..." type="text"/>
